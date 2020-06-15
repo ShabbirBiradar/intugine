@@ -1,0 +1,14 @@
+export const AuthConstants = {
+  LOGIN_SUCCESS: "LOGIN_SUCCESS",
+  LOGIN_FAILED: "LOGIN_FAILED"
+};
+
+export const DeviceConstants = {
+  GET_DEVICE_SUCCESS: "GET_DEVICE_SUCCESS",
+  GET_DEVICE_FAILED: "GET_DEVICE_FAILED"
+};
+
+export const LocationConstants = {
+  GET_LOCATION_SUCCESS: "GET_LOCATION_SUCCESS",
+  GET_LOCATION_FAILED: "GET_LOCATION_FAILED"
+};

@@ -1,0 +1,69 @@
+.device-map-container {
+  display: flex;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.171);
+  .left-container {
+    border-right: solid rgba(0, 0, 0, 0.356) 1.5px;
+    width: 70%;
+    text-align: center;
+    background-color: white;
+    .map-content {
+      .map-header {
+        display: flex;
+        .map-title {
+          width: 80%;
+        }
+        .map-btn {
+          .page {
+            padding: 10px;
+            cursor: pointer;
+          }
+          .prev {
+            padding: 1px 6px 2px 6px;
+            border: solid rgba(0, 0, 0, 0.238) 1px;
+          }
+          .next {
+            padding: 1px 6px 2px 6px;
+            border: solid rgba(0, 0, 0, 0.238) 1px;
+          }
+        }
+      }
+      .map-body {
+        .containerStyle {
+          position: absolute;
+          width: 69% !important;
+          height: 80vh !important;
+        }
+      }
+    }
+  }
+  .right-container {
+    width: 30%;
+    text-align: center;
+    background-color: white;
+    .device-list {
+      .device-body {
+        height: 80vh;
+        overflow: auto;
+        .device-content {
+          border: solid black 1px;
+          width: 50%;
+          padding: 10px;
+          margin: 10px 0px 0px 100px;
+          cursor: pointer;
+          background-color: rgba(185, 179, 179, 0.438);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.068);
+          display: flex;
+          .name {
+            width: 90%;
+          }
+          .chaeck {
+            width: 10%;
+            input {
+              padding: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
