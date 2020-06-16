@@ -9,7 +9,12 @@ export const getLocations = params => {
           Authorization: token
         }
       })
-      .catch(e => reject(e));
+      .catch(e => {
+        if (e.response && e.response.data && e.response.data.message) {
+          localStorage.removeItem("AuthToken");
+        }
+        reject(e);
+      });
     resolve(response);
   });
 };

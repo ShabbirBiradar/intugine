@@ -6,6 +6,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      errorMsg: "",
       formData: {
         email: "",
         password: ""
@@ -21,8 +22,12 @@ class Login extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      if (this.props.auth.authStatus.token) {
-        window.location = "/dashboard"
+      const { authStatus } = this.props.auth;
+      if (authStatus.token) {
+        window.location = "/dashboard";
+      }
+      if (authStatus.error) {
+        this.setState({ errorMsg: authStatus.error.data.message });
       }
     }
   }
@@ -33,7 +38,8 @@ class Login extends Component {
       formData: {
         ...this.state.formData,
         [name]: value
-      }
+      },
+      errorMsg: ""
     });
   };
 
@@ -50,6 +56,7 @@ class Login extends Component {
         <div className="login-root">
           <h2>LOGIN</h2>
           <form onSubmit={this.submitForm}>
+            <p className="errorMsg">{this.state.errorMsg}</p>
             <div className="form-controller">
               <input
                 type="email"

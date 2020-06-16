@@ -5,13 +5,14 @@ class Devices extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      devices: []
+      devices: [],
+      device: ""
     };
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      this.setState({ devices: this.props.devices });
+      this.setState({ devices: this.props.devices, device: this.props.device });
     }
   }
 
@@ -19,11 +20,11 @@ class Devices extends Component {
     this.props.changeDevice(false, device);
   };
 
-  onCheck=(e, device)=>{
+  onCheck = (e, device) => {
     this.props.changeDevice(e.target.checked, device);
-  }
+  };
   render() {
-    const { devices } = this.state;
+    const { devices, device } = this.state;
     return (
       <div className="device-list">
         <div className="title">
@@ -31,11 +32,14 @@ class Devices extends Component {
         </div>
         <div className="device-body">
           {devices.map((i, k) => (
-            <div key={k} className="device-content">
+            <div
+              key={k}
+              className={`device-content ${i.id == device ? "active" : ""} `}
+            >
               <div className="name" onClick={() => this.chnageDevice(i.id)}>
                 {i.id}
               </div>
-              <div className="check" onChange={(e)=>this.onCheck(e, i.id)}>
+              <div className="check" onChange={e => this.onCheck(e, i.id)}>
                 <input type="checkbox" />
               </div>
             </div>

@@ -18,7 +18,8 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    if (!this.props.auth.token) {
+    const {token} = this.props.auth;
+    if (!token && token == null) {
       this.props.history.push("/");
     } else {
       const { dispatch } = this.props;
@@ -83,6 +84,7 @@ class Dashboard extends Component {
           {deviceList ? (
             <Devices
               devices={deviceList}
+              device={device}
               changeDevice={(status, device) =>
                 this.changeDevice(status, device)
               }
